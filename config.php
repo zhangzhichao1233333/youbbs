@@ -6,21 +6,5 @@
  *在 youBBS 的代码基础之上发布派生版本，名字可以不包含youBBS，
  *但是页脚需要带有 based on youBBS 的字样和链接。
  */
-
-//数据库主机名或IP
-$servername = 'localhost';
-//数据库用户名
-$dbusername = 'root';
-//数据库密码
-$dbpassword = 'root';
-//数据库名
-$dbname = 'youbbs';
-//数据端口
-$dbport = '3306';
-
-//MySQL字符集
-$dbcharset = 'utf8';
-//系统默认字符集
-$charset = 'utf-8';
-
+include(CURRENT_DIR . '/conf/mysql.php');
 ?>
