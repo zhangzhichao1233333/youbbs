@@ -7,6 +7,7 @@ include(CURRENT_DIR . '/common.php');
 require_once(CURRENT_DIR . '/include/GoogleAuth/GoogleAuth.php');
 
 /*
+ *
 // 屏蔽下面几行可以通过 用户名和密码 登录
 if(($options['qq_appid'] && $options['qq_appkey']) || ($options['wb_key'] && $options['wb_secret'])){
     header("content-Type: text/html; charset=UTF-8");
