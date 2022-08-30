@@ -19,6 +19,7 @@ if($articledb === FALSE){
 	
     $query = $DBS->query($query_sql);
     $articledb = array();
+    echo "1111";
     while ($article = $DBS->fetch_array($query)) {
         // 格式化内容
         if($article['isred'] == '1' && $article['top'] == '1'){
