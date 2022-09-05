@@ -18,7 +18,7 @@ if(isset($site_infos)){
 		<div class="sider-box-title"><i class="fa fa-angle-double-right"></i> 管理员面板</div>
 		<div class="sider-box-content">
 		<div class="btn">
-		<a href="/admin-node">分类管理</a><a href="/admin-setting">网站设置</a><a href="/admin-user-list">用户管理</a><a href="/admin-link-list">链接管理</a>
+		<a href="/admin/node">分类管理</a><a href="/admin-setting">网站设置</a><a href="/admin-user-list">用户管理</a><a href="/admin-link-list">链接管理</a>
 		</div>
 		<div class="c"></div>
 		</div>
