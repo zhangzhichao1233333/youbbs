@@ -38,5 +38,10 @@ class BusinessService
         return $business->getCommentsStatus();
     }
 
+    public function getArticleInfo($where) {
+        $business = new BusinessDao();
+        return $business->getArticleInfo($where);
+    }
+
 
 }

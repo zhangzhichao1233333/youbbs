@@ -13,4 +13,8 @@ use think\Model;
 class FavoritesDao extends Model
 {
     protected $name = "Favorites";//指定数据表名
+
+    public function getFavoritesRow($where) {
+        return  $this->db()->where($where)->find();
+    }
 }
