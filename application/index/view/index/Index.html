@@ -1,0 +1,18 @@
+<?php
+    foreach ($articles AS $article) {
+        // 格式化内容
+        if($article['isred'] == '1' && $article['top'] == '1'){
+            $article['title'] = "<span class=\"label label-warning\">置顶</span><span class=\"label label-success\">推荐</span>".$article['title'];
+        }elseif($article['isred'] == '1'){
+            $article['title'] = "<span class=\"label label-success\">推荐</span>".$article['title'];
+        }elseif($article['top'] == '1'){
+            $article['title'] = "<span class=\"label label-warning\">置顶</span>".$article['title'];
+        }
+    }
+    // 页面变量
+    $title = "展示";
+    $pagefile = ROOT_PATH . '/templates/default/'.$tpl.'home.php';
+
+    include(ROOT_PATH . '/templates/default/'.$tpl.'layout.php');
+
+?>

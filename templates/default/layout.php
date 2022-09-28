@@ -1,5 +1,5 @@
-<?php 
-if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied'); 
+<?php
+if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied');
 ob_start();
 
 echo '
@@ -66,9 +66,9 @@ echo '
 			</form>
 		</div>
         <div class="banner">';
-        
-if($cur_user){ 
-    echo '<a href="/"><i class="fa fa-home"></i>首页</a>
+
+if($cur_user){
+    echo '<a href="/index"><i class="fa fa-home"></i>首页</a>
 	      <a href="/favorites"><i class="fa fa-star"></i>收藏</a>
 		  <a href="/setting"><i class="fa fa-cog"></i>设置</a>
 		  <a id="translateLink"><i class="fa fa-language"></i>繁體</a>
@@ -91,15 +91,14 @@ echo '       </div>
 <div class="main-wrap">
     <div class="main">
         <div class="main-content">';
-        
+
 include($pagefile);
 
 echo '       </div>
         <!-- main-content end -->
         <div class="main-sider">';
 
-include(CURRENT_DIR . '/templates/default/sider.php');
-
+include(ROOT_PATH . 'templates/default/sider.php');
 echo '       </div>
         <!-- main-sider end -->
         <div class="c"></div>
@@ -122,7 +121,7 @@ if($options['icp']){
 if($options['show_debug']){
     $mtime = explode(' ', microtime());
     $totaltime = number_format(($mtime[1] + $mtime[0] - $starttime), 6);
-    echo '<div class="sep5"></div><i class="fa fa-leaf"></i> Processed in ',$totaltime,' second(s), ',$DBS->querycount,' queries';
+    echo '<div class="sep5"></div><i class="fa fa-leaf"></i> Processed in ',$totaltime,' second(s), ',$articlesNum,' queries';
 }
 echo '    </div></div>
     <!-- footer end -->
@@ -191,7 +190,7 @@ if(!$options['show_debug']){
         header("HTTP/1.1 304 Not Modified");
         header("Status: 304 Not Modified");
         header("Etag: ".$etag);
-        exit;    
+        exit;
     }else{
         header("Etag: ".$etag);
     }
