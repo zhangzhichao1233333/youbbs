@@ -1,4 +1,5 @@
 <?php
+//todo 已迁移
 define('IN_SAESPOT', 1);
 define('CURRENT_DIR', pathinfo(__FILE__, PATHINFO_DIRNAME));
 

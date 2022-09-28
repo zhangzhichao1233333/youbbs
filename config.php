@@ -1,4 +1,5 @@
 <?php
+//todo 以迁移
 /**
  *程序官方支持社区 http://youbbs.sinaapp.com/
  *欢迎交流！

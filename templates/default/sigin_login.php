@@ -1,6 +1,5 @@
 <?php 
-if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied'); 
-
+if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied');
 foreach($errors as $error){
     echo '<div id="closes" class="errortipc"><i class="fa fa-info-circle"></i> ',$error,' <span id="close"><i class="fa fa-times"></i></span></div>';
 }
@@ -19,22 +18,22 @@ if($url_path == 'sigin'){
         echo '<p class="red">一个ip最小注册间隔时间是 ',$options['reg_ip_space'],' 秒，请稍后再来注册 或 让管理员把这个时间改小点。</p>';
     }else{
         echo '<p><label>重　复： <input type="password" name="pw2" class="pw2 sl w200" value="" /></label></p>';
-        echo '<p><label>验证码： <input type="text" name="seccode" class="seccode sl w137" value="" /></label> <img src="/seccode.php" align="absmiddle" /></p>';
+        echo '<p><label>验证码： <input type="text" name="seccode" class="seccode sl w137" value="" /></label> <img src="/new/seccode" align="absmiddle" /></p>';
     }
 }else{
     echo '<p><label>安全码： <input type="text" name="gauth" class="gauth sl w200" value="" /></label></p>
-	<p><label>验证码： <input type="text" name="seccode" class="seccode sl w137" value="" /></label> <img src="/seccode.php" align="absmiddle" /></p>';
+	<p><label>验证码： <input type="text" name="seccode" class="seccode sl w137" value="" /></label> <img src="/new/seccode" align="absmiddle" /></p>';
 }
 
 echo '<p><input type="submit" value=" ',$title,' " name="submit" class="textbtn" id="txtinbut"/> </p>';
 if($url_path == 'login'){
     if($options['close_register'] || $options['close']){
-        echo '<p class="grey fs12">&nbsp;&nbsp;<i class="fa fa-ban"></i> 网站暂时停止注册&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-exclamation-triangle"></i> 忘记密码？<a href="/forgot">马上找回</a>';
+        echo '<p class="grey fs12">&nbsp;&nbsp;<i class="fa fa-ban"></i> 网站暂时停止注册&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-exclamation-triangle"></i> 忘记密码？<a href="/new/forgot">马上找回</a>';
     }else{
-        echo '<p class="grey fs12">&nbsp;&nbsp;<i class="fa fa-user-plus"></i> 还没来过？<a href="/sigin">现在注册</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-exclamation-triangle"></i> 忘记密码？<a href="/forgot">马上找回</a>';
+        echo '<p class="grey fs12">&nbsp;&nbsp;<i class="fa fa-user-plus"></i> 还没来过？<a href="/new/sigin">现在注册</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-exclamation-triangle"></i> 忘记密码？<a href="/new/forgot">马上找回</a>';
     }
 }else{
-    echo '<p class="grey fs12">&nbsp;&nbsp;<i class="fa fa-user"></i> 已有用户？<a href="/login">现在登录</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-exclamation-triangle"></i> 忘记密码？<a href="/forgot">马上找回</a>';
+    echo '<p class="grey fs12">&nbsp;&nbsp;<i class="fa fa-user"></i> 已有用户？<a href="/new/login">现在登录</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-exclamation-triangle"></i> 忘记密码？<a href="/new/forgot">马上找回</a>';
 }
 echo '</p>
 </form>

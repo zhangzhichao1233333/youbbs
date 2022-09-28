@@ -1,5 +1,5 @@
 <?php
-
+//todo 已迁移
 error_reporting(0);
 session_start();
 //session_register('code');

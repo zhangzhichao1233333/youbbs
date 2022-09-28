@@ -24,7 +24,7 @@ echo '</select></p>
 <p class="newp"><textarea id="id-content" name="content" class="mll tall">',htmlspecialchars($p_content),'</textarea></p>
 <p class="newp"><input type="text" name="tags" value="',htmlspecialchars($p_tags),'" class="sll" placeholder="选填标签"/></p>';
 if(!$options['close_upload']){
-    include(CURRENT_DIR . '/templates/default/upload.php');
+    include($current_dir . '/../../../../templates/default/upload.php');
 	echo'<p><div class="float-right" style="margin-top: -3em;padding-right: 5px;"><input type="submit" value=" 发布主题 " name="submit" class="textbtn" /></div><div class="c"></div></p>';
 }else{
 	echo'<p><div class="float-right" style="padding-right: 5px;"><input type="submit" value=" 发布主题 " name="submit" class="textbtn" /></div><div class="c"></div></p>';

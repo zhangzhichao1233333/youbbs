@@ -20,7 +20,7 @@ $("#filetoupload").change(function() {
     $("#upload-prompt").text("附件上传中，请稍候！");
     $("#upload-prompt").show();
     if($(this).val()){
-        $(this).upload("/upload-',$img_max_w,'", function(res) {
+        $(this).upload("/new/upload/',$img_max_w,'", function(res) {
             if(res.status == 200){
                 $("#upload-prompt").text(res.msg);
                 var con = document.getElementById("id-content").value;

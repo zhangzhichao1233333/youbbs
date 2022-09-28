@@ -17,7 +17,7 @@ echo '
 <p><textarea id="id-content" name="content" class="comment-text mll">',$r_content,'</textarea></p>';
 
 if(!$options['close_upload']){
-    include(CURRENT_DIR . '/templates/default/upload.php');
+    include($current_dir . '/../../../../templates/default/upload.php');
 }
 
 echo '

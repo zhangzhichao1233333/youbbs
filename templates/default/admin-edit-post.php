@@ -42,7 +42,7 @@ echo '
 </p>';
 
 if(!$options['close_upload']){
-    include(CURRENT_DIR . '/templates/default/upload.php');
+    include($current_dir . '/../../../../templates/default/upload.php');
 }
 
 echo '

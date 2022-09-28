@@ -1,4 +1,5 @@
 <?php
+//todo 已迁移
 define('IN_SAESPOT', 1);
 define('CURRENT_DIR', dirname(__FILE__));
 
@@ -219,7 +220,7 @@ if($t_obj['tags']){
         $new_tag_list = array();
         foreach($tag_list as $tag){
             $tag_obj = $DBS->fetch_one_array("SELECT * FROM `yunbbs_tags` WHERE `name`='".$tag."'");
-            $new_tag_list[] = '<a href="/tag/'.$tag.'">'.$tag.'</a>';
+            $new_tag_list[] = '<a href="/new/tag/'.$tag.'">'.$tag.'</a>';
             $relative_ids[] = $tag_obj['ids'];
         }
         // set new tags

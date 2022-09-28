@@ -1,12 +1,12 @@
 <?php
-exit('nil');
+//exit('nil');
 define('IN_SAESPOT', 1);
 @header("content-Type: text/html; charset=UTF-8");
 
 $sqlfile = dirname(__FILE__) . '/yunbbs_mysql.sql';
-if(!is_readable($sqlfile)) {
-	exit('���ݿ��ļ������ڻ��߶�ȡʧ��');
-}
+//if(!is_readable($sqlfile)) {
+//	exit('���ݿ��ļ������ڻ��߶�ȡʧ��');
+//}
 $fp = fopen($sqlfile, 'rb');
 $sql = fread($fp, 2048000);
 fclose($fp);

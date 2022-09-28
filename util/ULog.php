@@ -1,6 +1,6 @@
 <?php
 namespace util;
-include(CURRENT_DIR . '/vendor/autoload.php');
+//include(CURRENT_DIR . '/vendor/autoload.php');
 use think\facade\Log ;
 
 class ULog extends Log{

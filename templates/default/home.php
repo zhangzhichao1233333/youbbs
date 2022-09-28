@@ -1,10 +1,10 @@
-<?php 
-if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied'); 
+<?php
+if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied');
 
 echo '
 <div class="nav-title">
     <div class="float-left"><i class="fa fa-angle-double-right"></i> 最新发布的主题</div>
-	<div class="float-right"><i class="fa fa-rss"></i> <a href="/feed" target="_blank">RSS订阅</a></div>
+	<div class="float-right"><i class="fa fa-rss"></i> <a href="/new/feed" target="_blank">RSS订阅<b style="color: red">存在问题 </b></a></div>
 	<div class="c"></div>
 </div>
 <div class="main-box home-box-list">';
@@ -12,7 +12,7 @@ echo '
 foreach($articledb as $article){
 echo '
 <div class="post-list">
-    <div class="item-avatar"><a href="/user/',$article['uid'],'">';
+    <div class="item-avatar"><a href="/new/user/',$article['uid'],'">';
 if(!$is_spider){
     echo '<img src="/avatar/large/',$article['uavatar'],'.png" alt="',$article['author'],'" />';
 }else{
@@ -20,8 +20,8 @@ if(!$is_spider){
 }
 echo '    </a></div>
     <div class="item-content">
-        <h1><a rel="bookmark" href="/topics/',$article['id'],'">',$article['title'],'</a></h1>
-        <span class="item-date"><i class="fa fa-archive"></i> <a href="/nodes/',$article['cid'],'">',$article['cname'],'</a>&nbsp;&nbsp;<i class="fa fa-user"></i> <a href="/user/',$article['uid'],'">',$article['author'],'</a>';
+        <h1><a rel="bookmark" href="/new/topics/',$article['id'],'">',$article['title'],'</a></h1>
+        <span class="item-date"><i class="fa fa-archive"></i> <a href="/new/nodes/',$article['cid'],'">',$article['cname'],'</a>&nbsp;&nbsp;<i class="fa fa-user"></i> <a href="/new/user/',$article['uid'],'">',$article['author'],'</a>';
 if($article['comments']){
     echo '&nbsp;&nbsp;<i class="fa fa-clock-o"></i> <time datetime="',showtime2($article['edittime']),'" pubdate="pubdate" data-updated="true">',showtime($article['edittime']),'</time>&nbsp;&nbsp;<i class="fa fa-user-secret"></i> 最后回复来自 <a href="/user/',$article['ruid'],'">',$article['rauthor'],'</a>';
 }else{
@@ -44,9 +44,9 @@ echo '    <div class="c"></div>
 }
 
 
-if(count($articledb) == $options['home_shownum']){ 
+if(count($articledb) == $options['home_shownum']){
 echo '<div class="pagination">';
-echo '<a href="/page/2" class="float-right">下一页 &raquo;</a>';
+echo '<a href="/new/page/2" class="float-right">下一页 &raquo;</a>';
 echo '<div class="c"></div>
 </div>';
 }

@@ -1,14 +1,14 @@
 <?php 
 if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied'); 
 
-echo '
-<div class="nav-title">
-    <i class="fa fa-angle-double-right"></i> 个人收藏的主题 （',$user_fav['articles'],'）
-</div>
-
-<div class="main-box home-box-list">';
-
-if($articledb){
+if (isset($user_fav['articles'])) {
+    echo '
+    <div class="nav-title">
+        <i class="fa fa-angle-double-right"></i> 个人收藏的主题 （',$user_fav['articles'],'）
+    </div>';
+}
+echo '<div class="main-box home-box-list">';
+if(isset($articledb)){
 
 foreach($articledb as $article){
 echo '

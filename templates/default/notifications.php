@@ -8,19 +8,19 @@ echo '
 
 <div class="main-box home-box-list">';
 
-if($articledb){
+if(isset($articledb)){
 
 foreach($articledb as $article){
 echo '
 <div class="post-list">
-    <div class="item-avatar"><a href="/user/',$article['uid'],'">';
+    <div class="item-avatar"><a href="/new/user/',$article['uid'],'">';
     echo '<img src="/static/grey.gif" data-original="/avatar/normal/',$article['uavatar'],'.png" alt="',$article['author'],'" />';
 echo '    </a></div>
     <div class="item-content">
-        <h1><a href="/notic/',$article['id'],'">',$article['title'],'</a></h1>
-        <span class="item-date"><i class="fa fa-tags"></i> <a href="/nodes/',$article['cid'],'">',$article['cname'],'</a>&nbsp;&nbsp;<i class="fa fa-user"></i> <a href="/user/',$article['uid'],'">',$article['author'],'</a>';
+        <h1><a href="/new/notic/',$article['id'],'">',$article['title'],'</a></h1>
+        <span class="item-date"><i class="fa fa-tags"></i> <a href="/new/nodes/',$article['cid'],'">',$article['cname'],'</a>&nbsp;&nbsp;<i class="fa fa-user"></i> <a href="/new/user/',$article['uid'],'">',$article['author'],'</a>';
 if($article['comments']){
-    echo '&nbsp;&nbsp;<i class="fa fa-clock-o"></i> ',$article['edittime'],'&nbsp;&nbsp;<i class="fa fa-user-secret"></i> 最后回复来自 <a href="/user/',$article['ruid'],'">',$article['rauthor'],'</a>';
+    echo '&nbsp;&nbsp;<i class="fa fa-clock-o"></i> ',$article['edittime'],'&nbsp;&nbsp;<i class="fa fa-user-secret"></i> 最后回复来自 <a href="/new/user/',$article['ruid'],'">',$article['rauthor'],'</a>';
 }else{
     echo '&nbsp;&nbsp;<i class="fa fa-clock-o"></i> ',$article['addtime'];
 }
@@ -33,7 +33,7 @@ if($article['comments']){
     }else{
         $c_page = '/'.$gotopage;
     }
-    echo '<div class="item-count"><a href="/notic/',$article['id'],'">',$article['comments'],'</a></div>';
+    echo '<div class="item-count"><a href="/new/notic/',$article['id'],'">',$article['comments'],'</a></div>';
 }
 echo '    <div class="c"></div>
 </div>';

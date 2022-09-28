@@ -1,4 +1,5 @@
 <?php
+//todo 已迁移
 //一些常用的数据操作
 
 if (!defined('IN_SAESPOT')) exit('error: 403 Access Denied');

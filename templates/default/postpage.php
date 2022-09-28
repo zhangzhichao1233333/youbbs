@@ -12,7 +12,7 @@ echo '
     <div class="topic-title-main float-left">
         <h1>',$t_obj['title'],'</h1>
         <div class="topic-title-date">
-        <i class="fa fa-user"></i> <a href="/user/',$t_obj['uid'],'">',$t_obj['author'],'</a>&nbsp;&nbsp;<i class="fa fa-calendar"></i> <time datetime="',showtime2($t_obj['edittime']),'" pubdate="pubdate" data-updated="true">',showtime($t_obj['addtime']),'</time>&nbsp;&nbsp;<i class="fa fa-eye"></i> ',$t_obj['views'],'阅读';
+        <i class="fa fa-user"></i> <a href="/new/user/',$t_obj['uid'],'">',$t_obj['author'],'</a>&nbsp;&nbsp;<i class="fa fa-calendar"></i> <time datetime="',showtime2($t_obj['edittime']),'" pubdate="pubdate" data-updated="true">',showtime($t_obj['addtime']),'</time>&nbsp;&nbsp;<i class="fa fa-eye"></i> ',$t_obj['views'],'阅读';
 if($cur_user && $cur_user['flag']>4){
     if(!$t_obj['closecomment']){
         echo '&nbsp;&nbsp;<i class="fa fa-comments"></i> <a href="#new-comment">回复</a>';
@@ -22,7 +22,7 @@ if($cur_user && $cur_user['flag']>4){
 
 echo '        </div>
     </div>
-    <div class="detail-avatar"><a href="/user/',$t_obj['uid'],'">';
+    <div class="detail-avatar"><a href="/new/user/',$t_obj['uid'],'">';
 if($is_spider){
     echo '<img src="/avatar/large/',$t_obj['uavatar'],'.png" alt="',$t_obj['author'],'" />';
 }else{
@@ -45,7 +45,9 @@ if($t_obj['relative_topics']){
     echo '<div class="has_adv"><h3>相关帖子：</h3>';
     echo '<ul class="rel_list">';
     foreach($t_obj['relative_topics'] as $rel_t_obj){
-        echo '<li><a href="/topics/',$rel_t_obj['id'],'" title="',$rel_t_obj['title'],'">',$rel_t_obj['title'],'</a></li>';
+        if (isset($rel_t_obj['id']) && isset($rel_t_obj['title'])) {
+            echo '<li><a href="/new/topics/',$rel_t_obj['id'],'" title="',$rel_t_obj['title'],'">',$rel_t_obj['title'],'</a></li>';
+        }
     }
     echo '<div class="c"></div></ul><div class="c"></div></div>';
 }
@@ -56,12 +58,12 @@ if($t_obj['favorites']){
 }
 if($cur_user && $cur_user['flag']>4){
     if($in_favorites){
-        echo '&nbsp;&nbsp; <a href="/favorites?act=del&id=',$t_obj['id'],'" title="点击取消收藏"><i class="fa fa-star-o"></i> 取消收藏</a>';
+        echo '&nbsp;&nbsp; <a href="/new/favorites?act=del&id=',$t_obj['id'],'" title="点击取消收藏"><i class="fa fa-star-o"></i> 取消收藏</a>';
     }else{
-        echo '&nbsp;&nbsp; <a href="/favorites?act=add&id=',$t_obj['id'],'" title="点击收藏"><i class="fa fa-star"></i> 收藏</a>';
+        echo '&nbsp;&nbsp; <a href="/new/favorites?act=add&id=',$t_obj['id'],'" title="点击收藏"><i class="fa fa-star"></i> 收藏</a>';
     }
     if($cur_user['flag']>=99){
-        echo '&nbsp;&nbsp; <a href="/admin-edit-post-',$t_obj['id'],'"><i class="fa fa-pencil-square"></i> 编辑</a>';
+        echo '&nbsp;&nbsp; <a href="/new/admin_edit_post/',$t_obj['id'],'"><i class="fa fa-pencil-square"></i> 编辑</a>';
     }
 }
 echo'&nbsp;&nbsp; <span class="right"><i class="fa fa-eye"></i> ',$t_obj['views'],'阅读</span></div>
@@ -82,7 +84,7 @@ foreach($commentdb as $comment){
 $count_n += 1;
 echo '
     <div class="commont-item">
-        <div class="commont-avatar"><a href="/user/',$comment['uid'],'">';
+        <div class="commont-avatar"><a href="/new/user/',$comment['uid'],'">';
 if($is_spider){
     echo '    <img src="/avatar/normal/',$comment['avatar'],'.png" alt="',$comment['author'],'" />';
 }else{
@@ -97,7 +99,7 @@ echo '</a></div>
             <div class="commont-data-date">
                 <div class="float-left"><i class="fa fa-user"></i> <a href="/user/',$comment['uid'],'">',$comment['author'],'</a>&nbsp;&nbsp;<i class="fa fa-calendar"></i> ',$comment['addtime'];
 if($cur_user && $cur_user['flag']>=99){
-    echo '&nbsp;&nbsp;<i class="fa fa-pencil-square"></i> <a href="/admin-edit-comment-',$comment['id'],'">编辑</a>';
+    echo '&nbsp;&nbsp;<i class="fa fa-pencil-square"></i> <a href="/new/admin-edit-comment/',$comment['id'],'">编辑</a>';
 }
                 echo '</div>
                 <div class="float-right">';
@@ -166,7 +168,7 @@ echo '    <form action="',$_SERVER["REQUEST_URI"],'#new-comment" method="post">
     <p><textarea id="id-content" name="content" class="comment-text mll">',htmlspecialchars($c_content),'</textarea></p>';
 
 if(!$options['close_upload']){
-    include(CURRENT_DIR . '/templates/default/upload.php');
+    include($current_dir . '/../../../../templates/default/upload.php');
 }
 
 echo '

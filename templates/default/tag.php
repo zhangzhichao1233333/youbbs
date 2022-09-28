@@ -10,9 +10,12 @@ echo '    <div class="c"></div>
 <div class="main-box home-box-list">';
 
 foreach($articledb as $article){
+  if (empty($article)) {
+      break;
+  }
 echo '
 <div class="post-list">
-    <div class="item-avatar"><a href="/user/',$article['uid'],'">';
+    <div class="item-avatar"><a href="/new/user/',$article['uid'],'">';
 if($is_spider){
     echo '<img src="/avatar/normal/',$article['uavatar'],'.png" alt="',$article['author'],'" />';
 }else{
@@ -20,10 +23,10 @@ if($is_spider){
 }
 echo '    </a></div>
     <div class="item-content">
-        <h1><a href="/topics/',$article['id'],'">',$article['title'],'</a></h1>
-        <span class="item-date"><i class="fa fa-archive"></i> <a href="/nodes/',$article['cid'],'">',$article['cname'],'</a>&nbsp;&nbsp;<i class="fa fa-user"></i> <a href="/user/',$article['uid'],'">',$article['author'],'</a>';
+        <h1><a href="/new/topics/',$article['id'],'">',$article['title'],'</a></h1>
+        <span class="item-date"><i class="fa fa-archive"></i> <a href="/new/nodes/',$article['cid'],'">',$article['cname'],'</a>&nbsp;&nbsp;<i class="fa fa-user"></i> <a href="/new/user/',$article['uid'],'">',$article['author'],'</a>';
 if($article['comments']){
-    echo '&nbsp;&nbsp; <i class="fa fa-clock-o"></i> ',$article['edittime'],'&nbsp;&nbsp;  <i class="fa fa-user-secret"></i> 最后回复来自 <a href="/user/',$article['ruid'],'">',$article['rauthor'],'</a>';
+    echo '&nbsp;&nbsp; <i class="fa fa-clock-o"></i> ',$article['edittime'],'&nbsp;&nbsp;  <i class="fa fa-user-secret"></i> 最后回复来自 <a href="/new/user/',$article['ruid'],'">',$article['rauthor'],'</a>';
 }else{
     echo '&nbsp;&nbsp; <i class="fa fa-clock-o"></i> ',$article['addtime'];
 }
@@ -36,7 +39,7 @@ if($article['comments']){
     }else{
         $c_page = '/'.$gotopage;
     }
-    echo '<div class="item-count"><a href="/topics/',$article['id'],$c_page,'#reply',$article['comments'],'">',$article['comments'],'</a></div>';
+    echo '<div class="item-count"><a href="/new/topics/',$article['id'],$c_page,'#reply',$article['comments'],'">',$article['comments'],'</a></div>';
 }
 echo '    <div class="c"></div>
 </div>';
@@ -46,10 +49,10 @@ echo '    <div class="c"></div>
 if($tag_obj['articles'] > $options['list_shownum']){ 
 echo '<div class="pagination">';
 if($page>1){
-echo '<a href="/tag/',$tag,'/',$page-1,'" class="float-left">&laquo; 上一页</a>';
+echo '<a href="/new/tag/',$tag,'/',$page-1,'" class="float-left">&laquo; 上一页</a>';
 }
 if($page<$taltol_page){
-echo '<a href="/tag/',$tag,'/',$page+1,'" class="float-right">下一页 &raquo;</a>';
+echo '<a href="/new/tag/',$tag,'/',$page+1,'" class="float-right">下一页 &raquo;</a>';
 }
 echo '<div class="c"></div>
 </div>';

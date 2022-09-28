@@ -11,7 +11,7 @@ echo '
 <div class="member-detail">
 <p>会员：<strong>',$m_obj['name'],'</strong> (第',$m_obj['id'],'号会员，',$m_obj['regtime'],'加入)';
 if($cur_user && $cur_user['flag']>=99){
-    echo ' &nbsp;&nbsp;&nbsp; • (',$m_obj['flag'],') <a href="/admin-setuser-',$m_obj['id'],'">编辑</a>';
+    echo ' &nbsp;&nbsp;&nbsp; • (',$m_obj['flag'],') <a href="/new/admin-setuser/',$m_obj['id'],'">编辑</a>';
 }
 echo '
 </p>
@@ -42,7 +42,7 @@ echo '
 foreach($articledb as $article){
 echo '
 <div class="post-list">
-    <div class="item-avatar"><a href="/user/',$m_obj['id'],'">';
+    <div class="item-avatar"><a href="/new/user/',$m_obj['id'],'">';
 if($is_spider){
     echo '<img src="/avatar/normal/',$m_obj['avatar'],'.png" alt="',$m_obj['name'],'" />';
 }else{
@@ -50,10 +50,10 @@ if($is_spider){
 }
 echo '    </a></div>
     <div class="item-content">
-        <h1><a href="/topics/',$article['id'],'">',$article['title'],'</a></h1>
-        <span class="item-date"><i class="fa fa-archive"></i> <a href="/nodes/',$article['cid'],'">',$article['cname'],'</a>&nbsp;&nbsp;<i class="fa fa-user"></i> <a href="/user/',$m_obj['id'],'">',$m_obj['name'],'</a>';
+        <h1><a href="/new/topics/',$article['id'],'">',$article['title'],'</a></h1>
+        <span class="item-date"><i class="fa fa-archive"></i> <a href="/new/nodes/',$article['cid'],'">',$article['cname'],'</a>&nbsp;&nbsp;<i class="fa fa-user"></i> <a href="/new/user/',$m_obj['id'],'">',$m_obj['name'],'</a>';
 if($article['comments']){
-    echo '&nbsp;&nbsp;<i class="fa fa-clock-o"></i> ',$article['edittime'],'&nbsp;&nbsp;<i class="fa fa-user-secret"></i> 最后回复来自 <a href="/user/',$article['ruid'],'">',$article['rauthor'],'</a>';
+    echo '&nbsp;&nbsp;<i class="fa fa-clock-o"></i> ',$article['edittime'],'&nbsp;&nbsp;<i class="fa fa-user-secret"></i> 最后回复来自 <a href="/new/user/',$article['ruid'],'">',$article['rauthor'],'</a>';
 }else{
     echo '&nbsp;&nbsp;<i class="fa fa-clock-o"></i> ',$article['addtime'];
 }
@@ -66,7 +66,7 @@ if($article['comments']){
     }else{
         $c_page = '/'.$gotopage;
     }
-    echo '<div class="item-count"><a href="/topics/',$article['id'],$c_page,'#reply',$article['comments'],'">',$article['comments'],'</a></div>';
+    echo '<div class="item-count"><a href="/new/topics/',$article['id'],$c_page,'#reply',$article['comments'],'">',$article['comments'],'</a></div>';
 }
 echo '    <div class="c"></div>
 </div>';

@@ -5,7 +5,7 @@ echo '
 <div class="nav-title">
        <i class="fa fa-angle-double-right"></i> ',$c_obj['name'],'(',$c_obj['articles'],')';
         if($cur_user && $cur_user['flag']>=99){
-            echo ' &nbsp;<i class="fa fa-pencil-square-o"></i> <a href="/admin-node-',$c_obj['id'],'#edit">编辑</a>';
+            echo ' &nbsp;<i class="fa fa-pencil-square-o"></i> <a href="/new/admin-node/',$c_obj['id'],'#edit">编辑</a>';
         }
 echo '    <div class="c"></div>
 </div>
@@ -19,7 +19,7 @@ if($c_obj['about']){
 foreach($articledb as $article){
 echo '
 <div class="post-list">
-    <div class="item-avatar"><a href="/user/',$article['uid'],'">';
+    <div class="item-avatar"><a href="/new/user/',$article['uid'],'">';
 if($is_spider){
     echo '<img src="/avatar/normal/',$article['uavatar'],'.png" alt="',$article['author'],'" />';
 }else{
@@ -27,10 +27,10 @@ if($is_spider){
 }
 echo '    </a></div>
     <div class="item-content">
-        <h1><a href="/topics/',$article['id'],'">',$article['title'],'</a></h1>
-        <span class="item-date"><i class="fa fa-user"></i> <a href="/user/',$article['uid'],'">',$article['author'],'</a>';
+        <h1><a href="/new/topics/',$article['id'],'">',$article['title'],'</a></h1>
+        <span class="item-date"><i class="fa fa-user"></i> <a href="/new/user/',$article['uid'],'">',$article['author'],'</a>';
 if($article['comments']){
-    echo '&nbsp;&nbsp; <i class="fa fa-clock-o"></i> ',$article['edittime'],'&nbsp;&nbsp;  <i class="fa fa-user-secret"></i> 最后回复来自 <a href="/user/',$article['ruid'],'">',$article['rauthor'],'</a>';
+    echo '&nbsp;&nbsp; <i class="fa fa-clock-o"></i> ',$article['edittime'],'&nbsp;&nbsp;  <i class="fa fa-user-secret"></i> 最后回复来自 <a href="/new/user/',$article['ruid'],'">',$article['rauthor'],'</a>';
 }else{
     echo '&nbsp;&nbsp;<i class="fa fa-clock-o"></i> ',$article['addtime'];
 }
@@ -43,7 +43,7 @@ if($article['comments']){
     }else{
         $c_page = '/'.$gotopage;
     }
-    echo '<div class="item-count"><a href="/topics/',$article['id'],$c_page,'#reply',$article['comments'],'">',$article['comments'],'</a></div>';
+    echo '<div class="item-count"><a href="/new/topics/',$article['id'],$c_page,'#reply',$article['comments'],'">',$article['comments'],'</a></div>';
 }
 echo '    <div class="c"></div>
 </div>';

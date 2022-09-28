@@ -17,10 +17,10 @@ if($url_path == 'login'){
     if($options['close_register'] || $options['close']){
         echo '<p class="grey fs12">&nbsp;&nbsp;<i class="fa fa-ban"></i> 网站暂时停止注册';
     }else{
-        echo '<p class="grey fs12">&nbsp;&nbsp;<i class="fa fa-user-plus"></i> 还没来过？<a href="/sigin">现在注册</a> ';
+        echo '<p class="grey fs12">&nbsp;&nbsp;<i class="fa fa-user-plus"></i> 还没来过？<a href="/new/sigin">现在注册</a> ';
     }
 }else{
-    echo '<p class="grey fs12">&nbsp;&nbsp; 哦~~又想起来了？！<a href="/login">现在登录</a> ';
+    echo '<p class="grey fs12">&nbsp;&nbsp; 哦~~又想起来了？！<a href="/new/login">现在登录</a> ';
 }
 echo '</p>
 </form>

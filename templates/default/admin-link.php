@@ -22,7 +22,7 @@ echo '
 </div>';
 
 
-if($l_obj){
+if(isset($l_obj)){
 echo '
 <a name="edit"></a>
 <div class="nav-title"><i class="fa fa-angle-double-right"></i> 修改链接</div>
@@ -53,7 +53,7 @@ echo '
 echo '
 <ul class="user-list">';
 foreach($linkdb as $link){
-    echo '<li><i class="fa fa-diamond"></i> <a href="',$link['url'],'" target="_blank">',$link['name'],'</a>&nbsp;&nbsp;<span class="centli"><i class="fa fa-link"></i> ',$link['url'],'</span><span class="reghtlink"><a href="/admin-link-edit-',$link['id'],'#1" title="编辑"><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/admin-link-del-',$link['id'],'#list" title="删除"><i class="fa fa-times"></i></a></span></li>';
+    echo '<li><i class="fa fa-diamond"></i> <a href="',$link['url'],'" target="_blank">',$link['name'],'</a>&nbsp;&nbsp;<span class="centli"><i class="fa fa-link"></i> ',$link['url'],'</span><span class="reghtlink"><a href="/new/admin-link/edit/',$link['id'],'#1" title="编辑"><i class="fa fa-pencil-square-o"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/new/admin-link/del/',$link['id'],'#list" title="删除"><i class="fa fa-times"></i></a></span></li>';
 }
 
 echo '</ul>
