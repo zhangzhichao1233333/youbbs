@@ -122,7 +122,7 @@ if($options['icp']){
 if($options['show_debug']){
     $mtime = explode(' ', microtime());
     $totaltime = number_format(($mtime[1] + $mtime[0] - $starttime), 6);
-    echo '<div class="sep5"></div><i class="fa fa-leaf"></i> Processed in ',$totaltime,' second(s), ',$articlesNum,' queries';
+    echo '<div class="sep5"></div><i class="fa fa-leaf"></i> Processed in ',$totaltime,' second(s), ',$DBS->querycount,' queries';
 }
 echo '    </div></div>
     <!-- footer end -->
